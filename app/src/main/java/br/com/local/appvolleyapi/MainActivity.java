@@ -24,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
     TextView txtRespostaWEB;
     Button btnAcessaServer;
 
-    String serverURL = "http://192.168.100.5/Projetovolleyapi/ola_servidor.php";
+    String serverURL = "http://192.168.100.13/projetovolleyapi/ola_servidor.php";
 
     RequestQueue requestQueue;
 
@@ -35,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         txtRespostaWEB = findViewById(R.id.txtRespostaWEB);
         btnAcessaServer = findViewById(R.id.btnAcessaServer);
+
         //Habilitando o cache para melhorar a performance
         Cache cache = new DiskBasedCache(getCacheDir(), 1024 * 1024);
 
@@ -51,7 +52,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 final RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
-                StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                StringRequest stringRequest = new StringRequest(Request.Method.GET,
                         serverURL,
                         new Response.Listener<String>() {
                             @Override
